@@ -1,0 +1,10 @@
+@import url('./_active/stoplight__color_active.css');
+@import url('./_green/stoplight__color_green.css');
+@import url('./_red/stoplight__color_red.css');
+@import url('./_yellow/stoplight__color_yellow.css');
+
+.stoplight__color {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}

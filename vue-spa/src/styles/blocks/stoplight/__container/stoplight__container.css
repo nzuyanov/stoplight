@@ -1,0 +1,9 @@
+.stoplight__container {
+    height: 50vh;
+    margin: 20px;
+    background: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

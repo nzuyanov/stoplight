@@ -1,0 +1,13 @@
+@import url('./__color/stoplight__color.css');
+@import url('./__container/stoplight__container.css');
+@import url('./__timer/stoplight__timer.css');
+
+.stoplight {
+    width: 400px;
+    height: 70vh;
+    margin: auto;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
