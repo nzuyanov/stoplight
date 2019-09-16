@@ -1,13 +1,18 @@
 <template>
-  <div class="stoplight__color" :class="{ stoplight__color_green : isGreen, stoplight__color_yellow : isYellow,
-    stoplight__color_red : isRed, stoplight__color_active : active }">
-      Hello!
-  </div>
+    <div class="stoplight__container">
+        <sl-colorbox color="green" :active="isGreen"></sl-colorbox>
+        <sl-colorbox color="yellow" :active="isYellow"></sl-colorbox>
+        <sl-colorbox color="red" :active="isRed"></sl-colorbox>
+    </div>
 </template>
  
 <script>
+  import slColorbox from './sl-colorbox.vue'
   export default {
-    props: ['color', 'active'],
+    components: {
+        slColorbox
+    },
+    props: ['activeColor'],
     data: function () {
         return {
             isGreen: false,
@@ -16,7 +21,7 @@
         }
     },
     created() {
-        switch (this.color){
+        switch (this.activeColor){
             case 'green':
                 this.isGreen = true;
                 break;
@@ -27,7 +32,6 @@
                 this.isRed = true;
                 break;
         }
-        console.log(this.active)
     },
 }
 </script>

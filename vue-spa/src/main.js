@@ -1,34 +1,28 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Router from 'vue-router'
-import Colorbox from './components/sl-colorbox.vue'
+import slContainer from './components/sl-container.vue'
+
+const screenGreen = { template: '<sl-container activeColor="green"></sl-container>' }
+const screenYellow = { template: '<sl-container activeColor="yellow"></sl-container>' }
+const screenRed = { template: '<sl-container activeColor="red"></sl-container>' }
 
 Vue.use(Router)
+Vue.component('sl-container', slContainer)
 
 const router = new Router({
   routes: [
     {
-      path: '/',
-      name:'home',
-      component: Colorbox,
-    },
-    {
       path: '/green',
-      name:'screenGreen',
-      component: Colorbox,
-      props: true,
+      component: screenGreen,
     },
     {
       path: '/yellow',
-      name:'screenYellow',
-      component: Colorbox,
-      props: true,
+      component: screenYellow,
     },
     {
       path: '/red',
-      name:'screenRed',
-      component: Colorbox,
-      props: true,
+      component: screenRed,
     },
   ]
  })
@@ -36,5 +30,5 @@ const router = new Router({
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router: router
 })

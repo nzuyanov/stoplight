@@ -5,11 +5,7 @@
     </header>
     <main>
       <div class="stoplight">
-        <div class="stoplight__container">
-          <sl-colorbox color="green"></sl-colorbox>
-          <sl-colorbox color="yellow"></sl-colorbox>
-          <sl-colorbox color="red"></sl-colorbox>
-        </div>
+        <router-view></router-view>
         <div class="stoplight__timer">timer</div>
       </div>
     </main>
@@ -17,11 +13,11 @@
 </template>
 
 <script>
-import slColorbox from './components/sl-colorbox.vue'
+//import slContainer from './components/sl-container.vue'
 export default {
-  components: {
-    slColorbox
-  },
+  //components: {
+  //  slContainer
+  //},
   name: 'app',
   data () {
     return {
