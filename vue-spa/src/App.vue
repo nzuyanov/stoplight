@@ -6,22 +6,55 @@
     <main>
       <div class="stoplight">
         <router-view></router-view>
-        <div class="stoplight__timer">timer</div>
+        <sl-timer :counter="counter"></sl-timer>
       </div>
     </main>
   </div>
 </template>
 
 <script>
-//import slContainer from './components/sl-container.vue'
+import slTimer from './components/sl-timer.vue'
 export default {
-  //components: {
-  //  slContainer
-  //},
   name: 'app',
+  components: {
+    slTimer
+  },
   data () {
     return {
-      
+      nextScreen: '/red',
+      counter: 0,
+    }
+  },
+  mounted() {
+    this.showNextScreen();
+  },
+  methods: {
+    showNextScreen(){
+      this.$router.push(this.nextScreen);
+      switch (this.nextScreen){
+        case '/green':
+          this.counter = 15;
+          this.nextScreen = '/yellow';
+          break;
+        case '/yellow':
+          this.counter = 3;
+          this.nextScreen = '/red';
+          break;
+        case '/red':
+          this.counter = 10;
+          this.nextScreen = '/green';
+          break;
+      }
+      this.countDown();
+    },
+    countDown(){
+      if (this.counter) {
+        return setTimeout(() => {
+          --this.counter;
+            this.countDown()
+        }, 1000)
+      }
+      this.showNextScreen();
     }
   }
 }

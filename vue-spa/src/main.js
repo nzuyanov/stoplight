@@ -13,6 +13,10 @@ Vue.component('sl-container', slContainer)
 const router = new Router({
   routes: [
     {
+      path: '/',
+      component: screenGreen,
+    },
+    {
       path: '/green',
       component: screenGreen,
     },
@@ -30,5 +34,5 @@ const router = new Router({
 new Vue({
   el: '#app',
   render: h => h(App),
-  router: router
+  router: router,
 })

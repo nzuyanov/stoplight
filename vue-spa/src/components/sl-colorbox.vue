@@ -27,7 +27,6 @@
                 this.isRed = true;
                 break;
         }
-        console.log(this.active)
     },
 }
 </script>
