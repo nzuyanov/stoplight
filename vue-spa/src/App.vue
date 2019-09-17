@@ -21,17 +21,27 @@ export default {
   },
   data () {
     return {
-      nextScreen: '/red',
+      nextScreen: '/',
       counter: 0,
+      timeouts: []
     }
   },
+  created(){
+    this.initNextScreen(this.$route.path);
+  },
   mounted() {
-    this.showNextScreen();
+    this.countDown();
+    this.$router.afterEach((to, from) => {
+      this.initNextScreen(this.$route.path);
+      this.timeouts.forEach(timeout => {clearTimeout(timeout)});
+      this.timeouts = [];
+      this.countDown();
+    })
   },
   methods: {
-    showNextScreen(){
-      this.$router.push(this.nextScreen);
-      switch (this.nextScreen){
+    initNextScreen(path){
+      switch (path){
+        case '/':
         case '/green':
           this.counter = 15;
           this.nextScreen = '/yellow';
@@ -45,16 +55,17 @@ export default {
           this.nextScreen = '/green';
           break;
       }
-      this.countDown();
     },
     countDown(){
       if (this.counter) {
-        return setTimeout(() => {
+        let newTimeout = setTimeout(() => {
           --this.counter;
             this.countDown()
-        }, 1000)
+        }, 1000);
+        this.timeouts.push(newTimeout);
+        return newTimeout;
       }
-      this.showNextScreen();
+      this.$router.push(this.nextScreen);
     }
   }
 }
