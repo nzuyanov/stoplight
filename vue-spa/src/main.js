@@ -13,7 +13,7 @@ Vue.component('sl-container', slContainer)
 const router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/', redirect: '/green',
       component: screenGreen,
     },
     {

@@ -21,7 +21,7 @@ export default {
   },
   data () {
     return {
-      nextScreen: '/',
+      nextScreen: null,
       counter: 0,
       timeouts: []
     }
@@ -30,13 +30,13 @@ export default {
     this.initNextScreen(this.$route.path);
   },
   mounted() {
-    this.countDown();
     this.$router.afterEach((to, from) => {
       this.initNextScreen(this.$route.path);
       this.timeouts.forEach(timeout => {clearTimeout(timeout)});
       this.timeouts = [];
       this.countDown();
-    })
+    });
+    this.countDown();
   },
   methods: {
     initNextScreen(path){
