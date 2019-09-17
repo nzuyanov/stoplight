@@ -1,7 +1,6 @@
 <template>
   <div class="stoplight__color" :class="{ stoplight__color_green : isGreen, stoplight__color_yellow : isYellow,
     stoplight__color_red : isRed, stoplight__color_active : active }">
-      Hello!
   </div>
 </template>
  

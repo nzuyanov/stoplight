@@ -1,7 +1,7 @@
 .stoplight__container {
-    height: 50vh;
-    margin: 20px;
-    background: grey;
+    margin: auto;
+    border-radius: 5vh;
+    background: #828282;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,5 +1,7 @@
 <template>
-    <div class="stoplight__timer"> {{ counter }}</div>
+    <div class="stoplight__timer stoplight__container">
+         <p>{{ counter }}</p>
+    </div>
 </template>
  
 <script>
