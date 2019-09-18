@@ -3,9 +3,41 @@ import App from './App.vue'
 import Router from 'vue-router'
 import slContainer from './components/sl-container.vue'
 
-const screenGreen = { template: '<sl-container activeColor="green"></sl-container>' }
-const screenYellow = { template: '<sl-container activeColor="yellow"></sl-container>' }
-const screenRed = { template: '<sl-container activeColor="red"></sl-container>' }
+const timeSettings = {
+  timeGreen: 15,
+  timeYellow: 3,
+  timeRed: 10,
+  timeBlink: 3,
+}
+
+export { timeSettings }
+
+const screenGreen = { 
+  data: function () {
+    return {
+      stime: (timeSettings.timeGreen - timeSettings.timeBlink)
+    }
+  }, 
+  template: '<sl-container activeColor="green" :solidTime="stime"></sl-container>' 
+}
+
+const screenYellow = { 
+  data: function () {
+    return {
+      stime: (timeSettings.timeYellow - timeSettings.timeBlink)
+    }
+  }, 
+  template: '<sl-container activeColor="yellow" :solidTime="stime"></sl-container>' 
+}
+
+const screenRed = { 
+  data: function () {
+    return {
+      stime: (timeSettings.timeRed - timeSettings.timeBlink)
+    }
+  }, 
+  template: '<sl-container activeColor="red" :solidTime="stime"></sl-container>' 
+}
 
 Vue.use(Router)
 Vue.component('sl-container', slContainer)

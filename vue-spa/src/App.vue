@@ -14,6 +14,7 @@
 
 <script>
 import slTimer from './components/sl-timer.vue'
+import { timeSettings } from './main.js'
 export default {
   name: 'app',
   components: {
@@ -43,15 +44,15 @@ export default {
       switch (path){
         case '/':
         case '/green':
-          this.counter = 15;
+          this.counter = timeSettings.timeGreen;
           this.nextScreen = '/yellow';
           break;
         case '/yellow':
-          this.counter = 3;
+          this.counter = timeSettings.timeYellow;
           this.nextScreen = '/red';
           break;
         case '/red':
-          this.counter = 10;
+          this.counter = timeSettings.timeRed;
           this.nextScreen = '/green';
           break;
       }
